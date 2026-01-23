@@ -38,6 +38,7 @@ interface ProfileCardProps {
   behindGlowColor?: string;
   behindGlowSize?: string;
   className?: string;
+  showIcon?: boolean;
   enableTilt?: boolean;
   enableMobileTilt?: boolean;
   mobileTiltSensitivity?: number;
@@ -79,6 +80,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
+  showIcon = true,
   onContactClick
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -340,7 +342,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
   const cardStyle = useMemo(
     () => ({
-      '--icon': iconUrl ? `url(${iconUrl})` : 'none',
+      '--icon': iconUrl && showIcon ? `url(${iconUrl})` : 'none',
       '--grain': grainUrl ? `url(${grainUrl})` : 'none',
       '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT,
       '--behind-glow-color': behindGlowColor ?? 'rgba(125, 190, 255, 0.67)',
@@ -369,7 +371,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       '--sunpillar-clr-5': 'var(--sunpillar-5)',
       '--sunpillar-clr-6': 'var(--sunpillar-6)'
     }),
-    [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize, cardRadius]
+    [iconUrl, showIcon, grainUrl, innerGradient, behindGlowColor, behindGlowSize, cardRadius]
   );
 
   const handleContactClick = useCallback((): void => {
