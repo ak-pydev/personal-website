@@ -1,11 +1,10 @@
 import CardNav from './components/CardNav'
 import DarkVeil from './components/DarkVeil'
-import ProfileCard from './components/ProfileCard'
-import cutout from './assets/cutout.png'
 import { TextLoop } from './components/text-loop'
-import { TextScramble } from './components/text-scramble'
+
 import Introduction from './components/Introduction'
-import MagicBento from './components/MagicBento'
+import PortfolioBento from './components/PortfolioBento'
+import WorkExperience from './components/WorkExperience'
 
 const App = () => {
   // Nav bar items
@@ -42,91 +41,54 @@ const App = () => {
   // Navbar items end
 
   return (
-    <div style={{ width: '100%', minHeight: '100vh', backgroundColor: '#000', overflowX: 'hidden' }}>
-      {/* Hero Section */}
-      <div style={{ height: '100vh', width: '100%', position: 'relative' }}>
-        <div style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0, zIndex: 0 }}>
-          <DarkVeil
-            hueShift={40}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={0.4}
-            scanlineFrequency={0}
-            warpAmount={0}
-            resolutionScale={1}
-          />
-        </div>
-        <CardNav
-          logoText="Aaditya Khanal"
-          items={items}
-          baseColor="transparent"
-          menuColor="#fff"
-          buttonBgColor="#fff"
-          buttonTextColor="#000"
-          ease="power3.out"
-          theme="dark"
+    <div className="relative min-h-screen w-full bg-black overflow-x-hidden flex flex-col items-center">
+      {/* Background - Fixed */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <DarkVeil
+          hueShift={40}
+          noiseIntensity={0}
+          scanlineIntensity={0}
+          speed={0.4}
+          scanlineFrequency={0}
+          warpAmount={0}
+
+          resolutionScale={1}
         />
+        {/* Gradient Overlay for "Blurred Mask" effect */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black pointer-events-none" />
+      </div>
 
-        <div style={{
-          position: 'absolute',
-          top: '55%',
-          left: '10%',
-          transform: 'translateY(-50%)',
-          zIndex: 20,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '2rem'
-        }}>
-          <ProfileCard
-            avatarUrl={cutout}
-            name="Aaditya Khanal"
-            title=""
-            handle="aadityakhanal"
-            status="Building cool things"
-            showUserInfo={false}
-            enableTilt={true}
-            enableMobileTilt={false}
-            onContactClick={() => console.log('Contact clicked')}
-            behindGlowEnabled={true}
-            behindGlowColor="rgba(125, 190, 255, 0.67)"
-            innerGradient="linear-gradient(145deg, #1A1A2E 0%, #16213E 100%)"
-          />
+      {/* Navigation - Fixed Top */}
+      <CardNav
+        logoText="Aaditya Khanal"
+        items={items}
+        baseColor="transparent"
+        menuColor="#fff"
+        buttonBgColor="#fff"
+        buttonTextColor="#000"
+        ease="power3.out"
+        theme="dark"
+      />
 
-          <div style={{ color: 'white', fontSize: '6rem', fontWeight: 'bold', display: 'flex', gap: '0.5rem' }}>
-            <span>I am a</span>
-            <TextLoop>
-              <span>Data Scientist</span>
-              <span>AI Researcher</span>
-              <span>ML Engineer</span>
-              <span>Data Engineer</span>
-            </TextLoop>
-          </div>
-        </div>
-
-        <div style={{
-          position: 'absolute',
-          top: '55%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 20,
-          textAlign: 'center'
-        }}>
+      {/* Hero Section - Responsive Flex */}
+      <div className="relative z-20 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 min-h-screen w-full px-4 pt-24 pb-12 box-border">
+        {/* Text Loop */}
+        <div className="text-white text-3xl md:text-5xl lg:text-7xl font-bold flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start text-center md:text-left z-20">
+          <span>I am a</span>
+          <TextLoop>
+            <span>Data Scientist</span>
+            <span>AI Researcher</span>
+            <span>ML Engineer</span>
+            <span>Data Engineer</span>
+          </TextLoop>
         </div>
       </div>
 
-      {/* Content Section */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '4rem 0',
-        gap: '2rem',
-        position: 'relative',
-        zIndex: 10,
-        backgroundColor: '#000'
-      }}>
+      {/* Content Section - Bento Grid & Intro */}
+      <div className="relative z-10 w-full flex flex-col items-center gap-12 pb-24 bg-black px-4">
         <Introduction />
-        <MagicBento />
+        <PortfolioBento />
+        <WorkExperience />
       </div>
     </div>
   );

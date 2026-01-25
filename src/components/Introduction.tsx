@@ -5,7 +5,7 @@ export function Introduction() {
     const [isTrigger, setIsTrigger] = useState(false);
 
     return (
-        <div>
+        <div className="mt-24">
             <a
                 href='#'
                 style={{ textDecoration: 'none' }}
@@ -14,7 +14,7 @@ export function Introduction() {
                 onMouseLeave={() => setIsTrigger(false)}
             >
                 <TextScramble
-                    className='text-5xl font-bold text-white transition-colors duration-300'
+                    className='text-6xl font-bold text-white transition-colors duration-300'
                     as='span'
                     speed={0.01}
                     trigger={isTrigger}
