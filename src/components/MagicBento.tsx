@@ -17,7 +17,7 @@ export interface BentoProps {
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = '132, 0, 255';
+const DEFAULT_GLOW_COLOR = '99, 102, 241';
 const MOBILE_BREAKPOINT = 768;
 
 const createParticleElement = (x: number, y: number, color: string = DEFAULT_GLOW_COLOR): HTMLDivElement => {
@@ -452,7 +452,7 @@ const MagicBento: React.FC<BentoProps> = ({
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   particleCount = DEFAULT_PARTICLE_COUNT,
   enableTilt = false,
-  glowColor = DEFAULT_GLOW_COLOR,
+  glowColor = '99, 102, 241',
   clickEffect = true,
   enableMagnetism = true
 }) => {
@@ -482,10 +482,10 @@ const MagicBento: React.FC<BentoProps> = ({
             --glow-intensity: 0;
             --glow-radius: 200px;
             --glow-color: ${glowColor};
-            --border-color: #392e4e;
-            --background-dark: #060010;
+            --border-color: #2a2f45;
+            --background-dark: #080c18;
             --white: hsl(0, 0%, 100%);
-            --purple-primary: rgba(132, 0, 255, 1);
+            --purple-primary: rgba(99, 102, 241, 1);
           }
           
           .card--border-glow::after {
@@ -534,7 +534,7 @@ const MagicBento: React.FC<BentoProps> = ({
         className="bento-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto w-full"
       >
         {/* Item 1: The "Hero" Profile (Large Square) - 2x2 */}
-        <div className="md:col-span-2 md:row-span-2 min-h-[400px]">
+        <div className="md:col-span-2 md:row-span-2 min-h-[400px]" id="about">
           <ParticleCard
             className={baseCardClass}
             style={cardStyle}
@@ -550,19 +550,23 @@ const MagicBento: React.FC<BentoProps> = ({
                 <h2 className="text-3xl md:text-4xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
                   Aaditya Khanal
                 </h2>
-                <p className="text-lg md:text-xl text-purple-300 font-medium mb-6">AI Researcher & ML Engineer</p>
+                <p className="text-lg md:text-xl text-indigo-300 font-medium mb-1">ML Researcher · PhD Applicant</p>
+                <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+                  Interested in human-in-the-loop AI, uncertainty estimation, and vision-language-action systems. Seeking a PhD to advance research at the intersection of safe, interpretable ML and real-world deployment.
+                </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
-                  <h3 className="text-sm uppercase tracking-wider text-gray-400 mb-1">Education</h3>
-                  <p className="font-semibold">B.S. in Computer Science</p>
-                  <p className="text-sm text-gray-300">Northern Kentucky University (GPA: 3.78)</p>
+                  <h3 className="text-xs uppercase tracking-wider text-gray-400 mb-2">Education</h3>
+                  <p className="font-semibold text-sm">B.S. Data Science & Business Analytics</p>
+                  <p className="text-xs text-gray-400">Minor: Applied Statistics</p>
+                  <p className="text-xs text-indigo-300 mt-1">Northern Kentucky University · GPA: 3.74 / 4.0 · Expected May 2026</p>
                 </div>
 
-                <div className="flex items-center gap-2 text-gray-300">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>Highland Heights, KY (Open to Relocation)</span>
+                <div className="flex items-center gap-2 text-gray-400 text-xs">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>Highland Heights, KY · Open to Relocation</span>
                 </div>
               </div>
             </div>
@@ -583,28 +587,29 @@ const MagicBento: React.FC<BentoProps> = ({
           >
             <div className="z-10 relative w-full h-full flex flex-col">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-white">Research Impact</h3>
-                <span className="px-3 py-1 text-xs font-bold bg-purple-600/30 text-purple-300 rounded-full border border-purple-500/30">Delivering Results</span>
+                <h3 className="text-2xl font-bold text-white">Research</h3>
+                <span className="px-3 py-1 text-xs font-bold bg-indigo-600/30 text-indigo-300 rounded-full border border-indigo-500/30">NSF · NKU</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-grow">
                 <div className="space-y-3">
                   <div className="mb-2">
-                    <span className="text-xs text-gray-400 uppercase block mb-1">Key Achievement</span>
-                    <p className="text-sm border-l-2 border-green-500 pl-3">Reduced research turnaround time by <span className="text-green-400 font-bold">60%</span> for 10,000+ records.</p>
+                    <span className="text-xs text-gray-400 uppercase block mb-1">NSF NAIRR — AI Gym Buddy</span>
+                    <p className="text-sm border-l-2 border-indigo-500 pl-3">Real-time VLA perception pipeline: <span className="text-indigo-300 font-bold">&lt;50ms</span> inference @ 30+ FPS. IROS 2026 submission.</p>
                   </div>
                   <div>
-                    <span className="text-xs text-gray-400 uppercase block mb-1">Current Focus</span>
-                    <p className="text-sm">Student Researcher for NSF (NAIRR) AI Gym Buddy.</p>
+                    <span className="text-xs text-gray-400 uppercase block mb-1">AutoEye · HCI Lab</span>
+                    <p className="text-sm border-l-2 border-slate-500 pl-3">60% faster analysis on 10,000+ records. 3 peer-reviewed publications.</p>
                   </div>
                 </div>
 
                 <div className="bg-white/5 p-3 rounded-lg text-sm border border-white/5">
-                  <span className="text-xs text-indigo-300 uppercase block mb-2 font-bold">Peer-Reviewed</span>
-                  <ul className="list-disc list-inside space-y-2 text-gray-300 text-xs">
-                    <li>Co-authored paper at MIPRO Int'l Conference (Croatia)</li>
-                    <li>Poster at the Capitol (Frankfurt)</li>
-                    <li>NKU research celebration</li>
+                  <span className="text-xs text-indigo-300 uppercase block mb-2 font-bold">Publications (4)</span>
+                  <ul className="space-y-1.5 text-gray-300 text-xs">
+                    <li className="border-l border-gray-600 pl-2">Emotion Classification w/ HITL — <span className="text-gray-500">AIBC 2025</span></li>
+                    <li className="border-l border-gray-600 pl-2">AutoEyeFT Drowsiness Detection — <span className="text-gray-500">AIBC 2025</span></li>
+                    <li className="border-l border-gray-600 pl-2">Overbidding Dynamics in Auctions — <span className="text-gray-500">MIPRO 2024</span></li>
+                    <li className="border-l border-gray-600 pl-2">Analyzing Human Dynamics — <span className="text-gray-500">2024</span></li>
                   </ul>
                 </div>
               </div>
@@ -629,16 +634,16 @@ const MagicBento: React.FC<BentoProps> = ({
 
               <div className="space-y-3 text-sm flex-grow">
                 <div>
-                  <span className="text-blue-400 font-bold text-xs">AI/ML</span>
-                  <p className="text-gray-300 text-xs mt-1">PyTorch, RAG, Vector DBs, Multimodal, LLM, VLMs</p>
+                  <span className="text-indigo-400 font-bold text-xs">Research & ML</span>
+                  <p className="text-gray-300 text-xs mt-1">PyTorch · HuggingFace · Scikit-learn · MLflow · LangChain · OpenCV</p>
                 </div>
                 <div>
-                  <span className="text-cyan-400 font-bold text-xs">Frontend</span>
-                  <p className="text-gray-300 text-xs mt-1">Next.js, React, TS, Tailwind</p>
+                  <span className="text-cyan-400 font-bold text-xs">Data Engineering</span>
+                  <p className="text-gray-300 text-xs mt-1">PySpark · Kafka · Airflow · NiFi · Docker · Kubernetes</p>
                 </div>
                 <div>
-                  <span className="text-orange-400 font-bold text-xs">Backend</span>
-                  <p className="text-gray-300 text-xs mt-1">Node.js, AWS, GCP, Docker</p>
+                  <span className="text-slate-400 font-bold text-xs">Cloud & Databases</span>
+                  <p className="text-gray-300 text-xs mt-1">AWS · GCP · Azure · PostgreSQL · MongoDB · Pinecone · Chroma</p>
                 </div>
               </div>
             </div>
@@ -658,16 +663,16 @@ const MagicBento: React.FC<BentoProps> = ({
             enableMagnetism={enableMagnetism}
           >
             <div className="z-10 relative flex flex-col h-full">
-              <span className="text-xs font-bold text-purple-400 uppercase mb-2">Featured Project</span>
-              <h3 className="text-lg font-bold text-white mb-2 leading-tight">Multi-Agent Researcher</h3>
+              <span className="text-xs font-bold text-indigo-400 uppercase mb-2">Featured Project</span>
+              <h3 className="text-lg font-bold text-white mb-2 leading-tight">Campus GPT</h3>
 
               <p className="text-xs text-gray-300 mb-3 flex-grow">
-                An autonomous LLM system that plans, searches, and summarizes technical topics.
+                Multimodal RAG QA agent for university queries. Ingests PDFs, web pages, and FAQs using FireCrawler + LangChain + Gemini.
               </p>
 
               <div className="flex flex-wrap gap-1 mt-auto">
-                {['Next.js', 'Supabase', 'Firebase', 'GCP'].map(tag => (
-                  <span key={tag} className="text-[10px] px-2 py-1 bg-white/10 rounded-full text-gray-300 whitespace-nowrap">
+                {['LangChain', 'Gemini', 'Chroma', 'Streamlit'].map(tag => (
+                  <span key={tag} className="text-[10px] px-2 py-1 bg-indigo-900/40 border border-indigo-700/30 rounded-full text-indigo-300 whitespace-nowrap">
                     {tag}
                   </span>
                 ))}
@@ -676,8 +681,8 @@ const MagicBento: React.FC<BentoProps> = ({
           </ParticleCard>
         </div>
 
-        {/* Item 5: High-Performance Engineering (Square) - 1x1 */}
-        <div className="min-h-[200px]">
+        {/* Item 5: Publications (Square) - 1x1 */}
+        <div className="min-h-[200px]" id="publications">
           <ParticleCard
             className={baseCardClass}
             style={cardStyle}
@@ -689,27 +694,34 @@ const MagicBento: React.FC<BentoProps> = ({
             enableMagnetism={enableMagnetism}
           >
             <div className="z-10 relative flex flex-col h-full">
-              <h3 className="text-lg font-bold text-white mb-3">High-Performance</h3>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-lg font-bold text-white">Publications</h3>
+                <a href="https://scholar.google.com/citations?user=nF17wMAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="text-[10px] text-indigo-400 hover:text-indigo-300 transition-colors">Scholar →</a>
+              </div>
 
-              <div className="space-y-3 flex-grow">
-                <div className="bg-red-900/10 border border-red-500/20 p-2 rounded">
-                  <p className="text-xs text-red-200 font-mono">
-                    <span className="font-bold">Metric:</span> Sub-50ms inference @ 30+ FPS
-                  </p>
+              <div className="space-y-2 flex-grow">
+                <div className="bg-white/3 p-2 rounded border border-white/5">
+                  <p className="text-[10px] text-white leading-tight font-medium">Emotion Classification w/ Human-in-the-Loop</p>
+                  <p className="text-[10px] text-indigo-400 mt-0.5">AIBC 2025</p>
                 </div>
-
-                <div>
-                  <span className="text-xs font-bold text-gray-200">AutoEye</span>
-                  <p className="text-[10px] text-gray-400 leading-tight mt-1">
-                    Distributed pipelines for autonomous vehicle logs using PySpark.
-                  </p>
+                <div className="bg-white/3 p-2 rounded border border-white/5">
+                  <p className="text-[10px] text-white leading-tight font-medium">AutoEyeFT: Continuous Learning for Drowsiness Detection</p>
+                  <p className="text-[10px] text-indigo-400 mt-0.5">AIBC 2025</p>
+                </div>
+                <div className="bg-white/3 p-2 rounded border border-white/5">
+                  <p className="text-[10px] text-white leading-tight font-medium">Competitive Arousal & Overbidding in Auctions</p>
+                  <p className="text-[10px] text-indigo-400 mt-0.5">MIPRO 2024</p>
+                </div>
+                <div className="bg-white/3 p-2 rounded border border-white/5">
+                  <p className="text-[10px] text-white leading-tight font-medium">Analyzing Human Dynamics via Auction Dataset</p>
+                  <p className="text-[10px] text-indigo-400 mt-0.5">2024</p>
                 </div>
               </div>
             </div>
           </ParticleCard>
         </div>
 
-        {/* Item 6: Credentials (Small) - 1x1 */}
+        {/* Item 6: Credentials & Leadership (Small) - 1x1 */}
         <div className="min-h-[200px]">
           <ParticleCard
             className={baseCardClass}
@@ -722,16 +734,20 @@ const MagicBento: React.FC<BentoProps> = ({
             enableMagnetism={enableMagnetism}
           >
             <div className="z-10 relative flex flex-col h-full">
-              <h3 className="text-lg font-bold text-white mb-3">Credentials</h3>
+              <h3 className="text-lg font-bold text-white mb-3">Leadership & Certs</h3>
 
               <div className="space-y-2 text-xs flex-grow">
                 <div className="flex items-start gap-2">
-                  <span className="text-green-400">✓</span>
-                  <span className="text-gray-300">NVIDIA Deep Learning</span>
+                  <span className="text-indigo-400">◆</span>
+                  <span className="text-gray-300">Chapter Lead — Google Developer Groups (GDG), NKU</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-green-400">✓</span>
-                  <span className="text-gray-300">Oracle Generative AI Pro</span>
+                  <span className="text-gray-300">NVIDIA Deep Learning Fundamentals</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-green-400">✓</span>
+                  <span className="text-gray-300">Oracle Gen AI Certified Professional 2024</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-green-400">✓</span>
@@ -741,7 +757,7 @@ const MagicBento: React.FC<BentoProps> = ({
 
               <div className="mt-3 pt-3 border-t border-white/10">
                 <p className="text-[10px] text-gray-400">
-                  <span className="text-yellow-500">★</span> Summer Clash Hackathon
+                  <span className="text-yellow-500">★</span> Fidelity Hackathon 2025 · Victor Hacks 2026
                 </p>
               </div>
             </div>

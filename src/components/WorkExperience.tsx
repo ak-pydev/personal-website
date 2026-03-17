@@ -6,51 +6,79 @@ export default function WorkExperience() {
             title: "May 2025 – Present",
             content: (
                 <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                        National Science Foundation (NAIRR) AI Gym Buddy | Student Researcher
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                        AI Gym Buddy — Student Researcher
                     </h3>
+                    <p className="text-indigo-300 text-sm mb-3">National Science Foundation (NSF / NAIRR) · Northern Kentucky University</p>
                     <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-300 text-base">
                         <li>
-                            Developing real-time perception pipelines with sub-50ms inference at 30+ FPS.
+                            Built real-time perception pipelines achieving sub-50ms inference at 30+ FPS, enabling live feedback in production-style systems.
                         </li>
                         <li>
-                            Streamlining large-scale video dataset management through automated experiment tracking with MLflow.
+                            Automated experiment tracking and metadata management using MLflow for large-scale video datasets.
+                        </li>
+                        <li>
+                            Authored and submitted an IROS 2026 paper on Vision-Language-Action (VLA) models with uncertainty estimation and human-in-the-loop verification.
                         </li>
                     </ul>
                 </div>
             ),
         },
         {
-            title: "August 2024 – May 2025",
+            title: "August 2024 – Present",
             content: (
                 <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                        Human-Computer Interaction Lab, NKU | Student Researcher
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                        AutoEye — Student Researcher
                     </h3>
+                    <p className="text-indigo-300 text-sm mb-3">Computer Vision & Autonomy Safety Systems · Northern Kentucky University</p>
                     <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-300 text-base">
                         <li>
-                            Spearheading automated feature extraction for 10,000+ records, which reduced research turnaround by 60%.
+                            Developed distributed pipelines processing autonomous vehicle logs at 30 FPS using PySpark.
                         </li>
                         <li>
-                            Co-authored and presented peer-reviewed research at the MIPRO International Conference.
+                            Reduced debugging time by 40% through real-time monitoring of accuracy drift and distribution shifts.
+                        </li>
+                        <li>
+                            Co-authored two peer-reviewed papers accepted at AIBC 2025 on human-in-the-loop continuous learning for drowsiness detection and emotion classification.
                         </li>
                     </ul>
                 </div>
             ),
         },
         {
-            title: "January 2024 – December 2024",
+            title: "January 2024 – July 2024",
             content: (
                 <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                        Computer Vision & Autonomy Safety Systems (AutoEye) | Student Researcher
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                        Human-Computer Interaction Lab — Student Researcher
                     </h3>
+                    <p className="text-indigo-300 text-sm mb-3">Northern Kentucky University</p>
                     <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-300 text-base">
                         <li>
-                            Built distributed pipelines using PySpark to process autonomous vehicle logs at 30 FPS.
+                            Reduced research turnaround time by 60% through automated feature extraction for 10,000+ auction records.
                         </li>
                         <li>
-                            Implemented real-time monitoring for accuracy drift, cutting debugging time by 40%.
+                            Co-authored a peer-reviewed paper on overbidding dynamics presented at MIPRO International Conference (Opatija, Croatia, 2024).
+                        </li>
+                    </ul>
+                </div>
+            ),
+        },
+        {
+            title: "Summer 2024",
+            content: (
+                <div>
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                        Data Science Extern
+                    </h3>
+                    <p className="text-indigo-300 text-sm mb-3">Beats by Dre</p>
+                    <ul className="list-disc list-outside ml-5 space-y-2 text-neutral-300 text-base">
+                        <li>
+                            Performed large-scale sentiment analysis on customer feedback using Python and Google Gemini 1.5 Pro.
+                        </li>
+                        <li>
+                            Delivered actionable insights on product perception trends to cross-functional data teams.
                         </li>
                     </ul>
                 </div>
@@ -58,7 +86,7 @@ export default function WorkExperience() {
         },
     ];
     return (
-        <div className="w-full">
+        <div className="w-full" id="experience">
             <Timeline data={data} />
         </div>
     );
